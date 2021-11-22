@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "166781266306",
+    "project_id": "bookit-93169",
+    "storage_bucket": "bookit-93169.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166781266306:android:d726e7fe1a4fa88d43879b",
+        "android_client_info": {
+          "package_name": "com.example.imageslider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "166781266306-qmlh1jklfqdel94i86fs6f7gb8u0qnk2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA5DdI9MS6Tstftu_keJqPWHK6lwehSIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "166781266306-qmlh1jklfqdel94i86fs6f7gb8u0qnk2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

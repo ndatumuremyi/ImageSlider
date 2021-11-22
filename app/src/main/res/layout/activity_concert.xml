@@ -22,14 +22,14 @@
         android:textStyle="bold"
         android:gravity="center"
         android:padding="10dp"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottombar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bottombar"
-        app:itemBackground="@color/black"
-        app:itemTextColor="@drawable/bottombar"
-        app:itemIconTint="@drawable/bottombar"
-        app:menu="@menu/menu"
         android:layout_alignParentBottom="true"
-        />
+        app:itemBackground="@color/black"
+        app:itemIconTint="@drawable/bottombar"
+        app:itemTextColor="@drawable/bottombar"
+        app:menu="@menu/menu" />
 </RelativeLayout>

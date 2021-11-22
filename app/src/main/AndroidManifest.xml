@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ImageSlider">
         <activity
+            android:name=".EventPlannerActivity"
+            android:exported="false" />
+        <activity
             android:name=".Match"
             android:exported="false" />
         <activity
