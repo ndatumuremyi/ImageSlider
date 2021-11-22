@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="HOME"
+        android:icon="@drawable/bottomhome"
+
+        />
+    <item
+        android:id="@+id/concert"
+        android:title="CONCERT"
+        android:icon="@drawable/bottomconcert"
+        />
+    <item
+        android:id="@+id/movie"
+        android:title="MOVIE"
+        android:icon="@drawable/bottommovie"
+        />
+    <item
+        android:id="@+id/match"
+        android:title="MATCH"
+        android:icon="@drawable/bottommatch"
+        />
+</menu>

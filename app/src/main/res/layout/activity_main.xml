@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home">
+
+    <include
+        android:id="@+id/topbar"
+        layout="@layout/topmenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <com.smarteist.autoimageslider.SliderView
+        android:id="@+id/imageSlider"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_below="@+id/topbar"
+        app:sliderAnimationDuration="600"
+        app:sliderAutoCycleDirection="back_and_forth"
+        app:sliderAutoCycleEnabled="true"
+        app:sliderIndicatorAnimationDuration="600"
+        app:sliderIndicatorGravity="center_horizontal|bottom"
+        app:sliderIndicatorMargin="15dp"
+        app:sliderIndicatorOrientation="horizontal"
+        app:sliderIndicatorPadding="3dp"
+        app:sliderIndicatorRadius="2dp"
+        app:sliderIndicatorSelectedColor="#F30D0D"
+        app:sliderIndicatorUnselectedColor="#FFF"
+        app:sliderScrollTimeInSec="4"
+        app:sliderStartAutoCycle="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="230dp"
+            android:background="#91BC5E"
+            android:padding="10sp"
+            android:text="trending"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </com.smarteist.autoimageslider.SliderView>
+
+    <TextView
+        android:id="@+id/hometxt"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imageSlider"
+        android:layout_centerHorizontal="true"
+        android:text="@string/auto_image_slider_course"
+        android:textAlignment="center"
+        android:textColor="#010A3A"
+        android:textSize="30sp"
+        android:textStyle="bold|italic" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottombar"
+        app:itemBackground="#00030E4C"
+        app:itemTextColor="@drawable/bottombar"
+        app:itemIconTint="@drawable/bottombar"
+        app:menu="@menu/menu"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

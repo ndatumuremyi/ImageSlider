@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/pater/Documents/projects/andrdProjects/ImageSlider/app/src/main/res/layout/activity_concert.xml" value="0.1171875" />
+        <entry key="..\:/Users/pater/Documents/projects/andrdProjects/ImageSlider/app/src/main/res/layout/activity_main.xml" value="0.1171875" />
+        <entry key="..\:/Users/pater/Documents/projects/andrdProjects/ImageSlider/app/src/main/res/layout/activity_match.xml" value="0.1171875" />
+        <entry key="..\:/Users/pater/Documents/projects/andrdProjects/ImageSlider/app/src/main/res/layout/activity_movie.xml" value="0.1171875" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/drawable-anydpi/bottomConcert.xml" value="0.1" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/drawable-anydpi/bottomHome.xml" value="0.165234375" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/drawable-anydpi/bottomhome.xml" value="0.16332046332046332" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/drawable-anydpi/menu.xml" value="0.240625" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/drawable-anydpi/menu1.xml" value="0.240625" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/drawable/bottombar.xml" value="0.20083333333333334" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/layout/activity_concert.xml" value="0.153125" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/layout/activity_match.xml" value="0.142578125" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/layout/activity_match2.xml" value="0.142578125" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/layout/activity_movie.xml" value="0.153125" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/layout/bootomactionbar.xml" value="0.16" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/layout/drawable_menu.xml" value="0.153125" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/layout/header_menu.xml" value="0.153125" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/layout/slider_item.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/layout/topmenu.xml" value="0.18" />
+        <entry key="..\:/Users/student/Desktop/class notes/year 3/semester 2/android/tutorial/ImageSlider/app/src/main/res/menu/menu.xml" value="0.153125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
