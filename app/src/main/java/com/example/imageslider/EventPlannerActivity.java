@@ -36,6 +36,7 @@ public class EventPlannerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 createEventPopup.showAsDropDown(createEvents,0,0);
+                createEventPopup.setFocusable(true);
 
             }
         });
@@ -44,6 +45,13 @@ public class EventPlannerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 createEventPopup.dismiss();
+            }
+        });
+        Button addCategoryButton = createEvents.findViewById(R.id.addNewCategory);
+        addCategoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }
