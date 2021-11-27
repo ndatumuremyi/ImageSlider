@@ -3,7 +3,11 @@ package com.example.imageslider;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -24,10 +28,22 @@ public class EventPlannerActivity extends AppCompatActivity {
         FloatingActionButton addEvent = findViewById(R.id.addMenuItem);
 
 
+        LayoutInflater inflater = (LayoutInflater) EventPlannerActivity.this.getSystemService(LAYOUT_INFLATER_SERVICE);
+        View  createEvents = inflater.inflate(R.layout.create_event_popup, null);
+        PopupWindow createEventPopup = new PopupWindow(createEvents, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+
         addEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                createEventPopup.showAsDropDown(createEvents,0,0);
 
+            }
+        });
+        Button closeButton = createEvents.findViewById(R.id.closeButton);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createEventPopup.dismiss();
             }
         });
     }
