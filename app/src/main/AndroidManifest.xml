@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ImageSlider">
         <activity
-            android:name=".Home"
+            android:name=".EventPlannerActivity"
             android:exported="false" />
         <activity
             android:name=".Match"
@@ -22,7 +22,7 @@
             android:name=".Concert"
             android:exported="false" />
         <activity
-            android:name=".EventPlannerActivity"
+            android:name=".Home"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

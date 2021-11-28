@@ -2,6 +2,8 @@ package com.example.imageslider.model;
 
 import android.util.Log;
 
+import com.google.firebase.Timestamp;
+
 import java.util.ArrayList;
 
 public class EventC {
@@ -9,6 +11,24 @@ public class EventC {
     private String date;
     private String location;
     private ArrayList<Category> categories = new ArrayList<>();
+    private Timestamp createdAt;
+    private Timestamp updatedAt;
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
     public EventC() {
     }

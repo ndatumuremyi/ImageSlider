@@ -1,7 +1,12 @@
 package com.example.imageslider;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,12 +22,26 @@ import android.widget.Toast;
 
 import com.example.imageslider.model.Category;
 import com.example.imageslider.model.EventC;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
 
 public class EventPlannerActivity extends AppCompatActivity {
     int categoryIndex = 0;
+    ProgressDialog progress;
+    String creator;
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,11 +91,19 @@ public class EventPlannerActivity extends AppCompatActivity {
                 categoryContainer.addView(categoryLayout);
             }
         });
+        creator = user==null?"general":user.getDisplayName();
 
         Button publishB = createEvents.findViewById(R.id.publish);
         publishB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progress = new ProgressDialog(EventPlannerActivity.this);
+                progress.setTitle("Loading");
+                progress.setMessage("Wait while loading...");
+                progress.setCanceledOnTouchOutside(false); // disable dismiss by tapping outside of the dialog
+                progress.show();
+
+
                 EditText eventName = createEvents.findViewById(R.id.eventName);
                 EditText eventLocation = createEvents.findViewById(R.id.eventLocation);
                 EditText eventDate = createEvents.findViewById(R.id.eventDate);
@@ -86,6 +113,9 @@ public class EventPlannerActivity extends AppCompatActivity {
                 eventC.setName(eventName.getText().toString());
                 eventC.setDate(eventDate.getText().toString());
                 eventC.setLocation(eventLocation.getText().toString());
+
+                eventC.setCreatedAt(Timestamp.now());
+                eventC.setUpdatedAt(Timestamp.now());
 
                 for (int i = (categoryIndex - 1); i >= 0; --i) {
                     EditText categoryName = categoryContainer.findViewById(i).findViewById(R.id.categoryName);
@@ -99,7 +129,36 @@ public class EventPlannerActivity extends AppCompatActivity {
                     eventC.addCategory(category);
                 }
                 eventC.print();
+
+
+                int month = eventC.getCreatedAt().toDate().getMonth() + 1;
+                db.collection("data").document(creator).collection("events").add(eventC)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Log.d("TAG", "DocumentSnapshot written with ID: " + documentReference.getId());
+                                progress.dismiss();
+                                createEventPopup.dismiss();
+                                Toast.makeText(EventPlannerActivity.this, "success", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w("TAG", "Error adding document", e);
+                                progress.dismiss();
+                                Toast.makeText(EventPlannerActivity.this, "save data fail", Toast.LENGTH_SHORT).show();
+
+                            }
+                        });
             }
         });
+
+
+
+
+        // d
+        RecyclerView recyclerView=findViewById(R.id.recyclerView);
     }
+
 }
