@@ -33,6 +33,12 @@ public class EventC {
     public EventC() {
     }
 
+    public EventC(String name, String date, String location) {
+        this.name = name;
+        this.date = date;
+        this.location = location;
+    }
+
     public EventC(String name, String date, String location, ArrayList<Category> categories) {
         this.name = name;
         this.date = date;

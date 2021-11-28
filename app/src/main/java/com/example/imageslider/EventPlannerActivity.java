@@ -3,6 +3,7 @@ package com.example.imageslider;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
@@ -14,12 +15,12 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.imageslider.adapters.EventAdapter;
 import com.example.imageslider.model.Category;
 import com.example.imageslider.model.EventC;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,16 +31,22 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EventPlannerActivity extends AppCompatActivity {
     int categoryIndex = 0;
     ProgressDialog progress;
     String creator;
+
+    RecyclerView recyclerView;
+    ArrayList<EventC> eventCList = new ArrayList<>();
+    EventAdapter eventAdapter;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -139,6 +146,7 @@ public class EventPlannerActivity extends AppCompatActivity {
                                 Log.d("TAG", "DocumentSnapshot written with ID: " + documentReference.getId());
                                 progress.dismiss();
                                 createEventPopup.dismiss();
+                                loadEVents();
                                 Toast.makeText(EventPlannerActivity.this, "success", Toast.LENGTH_SHORT).show();
                             }
                         })
@@ -158,7 +166,44 @@ public class EventPlannerActivity extends AppCompatActivity {
 
 
         // d
-        RecyclerView recyclerView=findViewById(R.id.recyclerView);
+        recyclerView=(RecyclerView) findViewById(R.id.recyclerView);
+        loadEVents();
+//        contactAdapter=new ContactAdapter(contactList);
+        eventAdapter = new EventAdapter(eventCList);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(EventPlannerActivity.this));
+        recyclerView.setVerticalScrollBarEnabled(true);
+        recyclerView.setAdapter(eventAdapter);
+    }
+
+    private void loadEVents() {
+        db.collection("data").document(creator).collection("events")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @RequiresApi(api = Build.VERSION_CODES.N)
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            eventCList.clear();
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+//                                        document.toObject(com.example.isthateasy2.models.Task.class);
+                                eventCList.add(document.toObject(EventC.class));
+
+                            }
+                            recyclerView.setAdapter(eventAdapter);
+                        } else {
+                            Log.d("TAG", "Error getting documents: ", task.getException());
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.e("TAG", "onFailure: Error on database occur" + e.toString() );
+            }
+        })
+        ;
+//        eventCList.add(new EventC("test","12-21-1211","kigali"));
+//        eventCList.add(new EventC("test2","12-21-1211","kigali"));
     }
 
 }
